@@ -1,0 +1,31 @@
+image:
+  name: alpine/helm:3.3.4
+  entrypoint: ["/bin/sh", "-c"]
+
+stages:
+  - test
+  - deploy
+
+lint:
+  stage: test
+  script:
+  - >
+    for dir in $(ls -d julb-*/ | sed 's#/##'); do
+      helm lint $dir
+    done
+
+pages:
+  stage: deploy
+  script:
+  - $(wget --no-check-certificate $CI_PAGES_URL/content.tar.gz -O prev_content.tar.gz || exit 0;);
+  - '[ -s prev_content.tar.gz ] && tar -xzf prev_content.tar.gz public/'
+  - for dir in $(ls -d julb-*/ | sed 's#/##'); do
+      helm package $dir -d public
+    done
+  - helm repo index public/ --url $CI_PAGES_URL
+  - tar -zcf content.tar.gz public/ && mv content.tar.gz public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
