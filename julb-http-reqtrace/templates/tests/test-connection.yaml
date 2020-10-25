@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "julb-http-reqtrace.fullname" . }}-test-connection"
+  labels:
+    {{- include "julb-http-reqtrace.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "julb-http-reqtrace.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
