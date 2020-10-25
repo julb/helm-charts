@@ -19,7 +19,8 @@ pages:
   script:
   - $(wget --no-check-certificate $CI_PAGES_URL/content.tar.gz -O prev_content.tar.gz || exit 0;);
   - '[ -s prev_content.tar.gz ] && tar -xzf prev_content.tar.gz public/'
-  - for dir in $(ls -d julb-*/ | sed 's#/##'); do
+  - >
+    for dir in $(ls -d julb-*/ | sed 's#/##'); do
       helm package $dir -d public
     done
   - helm repo index public/ --url $CI_PAGES_URL
