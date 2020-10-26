@@ -1,4 +1,4 @@
 #!/bin/bash
-for dir in $(ls -d */ | sed 's#/##'); do
+for dir in $(ls -d julb/*/ ); do
 	helm lint $dir
 done

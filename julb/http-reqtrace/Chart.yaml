@@ -1,5 +1,5 @@
 apiVersion: v2
-name: julb-http-reqtrace
+name: http-reqtrace
 description: This chart installs http-reqtrace with deployment, ingress and service.
 
 # A chart can be either an 'application' or a 'library' chart.

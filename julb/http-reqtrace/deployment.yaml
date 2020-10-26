@@ -1,16 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "julb-http-reqtrace.fullname" . }}
+  name: {{ include "http-reqtrace.fullname" . }}
   labels:
-    {{- include "julb-http-reqtrace.labels" . | nindent 4 }}
+    {{- include "http-reqtrace.labels" . | nindent 4 }}
 spec:
-{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-{{- end }}
   selector:
     matchLabels:
-      {{- include "julb-http-reqtrace.selectorLabels" . | nindent 6 }}
+      {{- include "http-reqtrace.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -18,13 +16,13 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "julb-http-reqtrace.selectorLabels" . | nindent 8 }}
+        {{- include "http-reqtrace.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "julb-http-reqtrace.serviceAccountName" . }}
+      serviceAccountName: {{ include "http-reqtrace.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

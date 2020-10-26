@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "julb-http-reqtrace.fullname" . }}
+  name: {{ include "http-reqtrace.fullname" . }}
   labels:
-    {{- include "julb-http-reqtrace.labels" . | nindent 4 }}
+    {{- include "http-reqtrace.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "julb-http-reqtrace.selectorLabels" . | nindent 4 }}
+    {{- include "http-reqtrace.selectorLabels" . | nindent 4 }}
