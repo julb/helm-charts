@@ -5,7 +5,7 @@ This repository hold a list of charts easily deployable on Kubernetes.
 ## TL;DR
 
 ```bash
-$ helm repo add julb https://julb.gitlab.io/helm-charts
+$ helm repo add julb https://charts.julb.me
 $ helm search repo julb
 $ helm install my-release julb/<chart>
 ```

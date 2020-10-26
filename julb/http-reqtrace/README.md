@@ -5,7 +5,7 @@
 ## TL;DR
 
 ```bash
-$ helm repo add julb https://julb.gitlab.io/helm-charts
+$ helm repo add julb https://charts.julb.me
 $ helm install my-release julb/http-reqtrace
 ```
 

@@ -17,13 +17,13 @@ lint:
 pages:
   stage: deploy
   script:
-  - $(wget --no-check-certificate $CI_PAGES_URL/content.tar.gz -O prev_content.tar.gz || exit 0;);
+  - $(wget --no-check-certificate $CHARTS_PUBLIC_URL/content.tar.gz -O prev_content.tar.gz || exit 0;);
   - '[ -s prev_content.tar.gz ] && tar -xzf prev_content.tar.gz public/'
   - >
     for dir in $(ls -d julb/*/); do
       helm package $dir -d public
     done
-  - helm repo index public/ --url $CI_PAGES_URL
+  - helm repo index public/ --url $CHARTS_PUBLIC_URL
   - tar -zcf content.tar.gz public/ && mv content.tar.gz public/
   artifacts:
     paths:
