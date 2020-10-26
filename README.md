@@ -9,3 +9,9 @@ $ helm repo add julb https://julb.gitlab.io/helm-charts
 $ helm search repo julb
 $ helm install my-release julb/<chart>
 ```
+
+# Chart list
+
+Pick one among the list to view configuration details.
+
+- [julb/http-reqtrace](./julb/http-reqtrace/README.md)
