@@ -72,6 +72,7 @@ The following table lists the configurable parameters of the http-reqtrace chart
 | `podSecurityContext`                      | http-reqtrace pods' Security Context                                                                                      | `{}`                                                         |
 | `securityContext`                | http-reqtrace containers' Security Context                                                                                | `{}`                                                         |
 | `resources`                        | The requested resources and resources limits for http-reqtrace containers                                                                         | `{}`                                                         |
+| `extraLabels`        | Additional labels to apply on all objects                                      | `{}`                           |
 
 ### Exposure parameters
 
