@@ -1,0 +1,108 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "git-configmap-sync.fullname" . }}
+  labels:
+    {{- include "git-configmap-sync.labels" . | nindent 4 }}
+spec:
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
+  schedule: {{ .Values.schedule | quote }}
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        metadata:
+        {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+        {{- end }}
+          labels:
+            {{- include "git-configmap-sync.selectorLabels" . | nindent 12 }}
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          restartPolicy: Never
+          serviceAccountName: {{ include "git-configmap-sync.serviceAccountName" . }}
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          
+          initContainers:
+            - name: git-clone
+              securityContext:
+                {{- toYaml .Values.gitClone.securityContext | nindent 16 }}
+              image: "{{ .Values.gitClone.image.repository }}:{{ .Values.gitClone.image.tag }}"
+              imagePullPolicy: {{ .Values.gitClone.image.pullPolicy }}
+              env:
+              - name: GIT_URL
+                value: {{ .Values.gitClone.gitConfig.repository }}
+              - name: GIT_BRANCH
+                value: {{ .Values.gitClone.gitConfig.branch }}
+              - name: GIT_SUB_DIRECTORY
+                value: {{ .Values.gitClone.gitConfig.subdirectory | default "/" }}
+              - name: GIT_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ include "git-configmap-sync.gitCloneSecretName" . }}
+                    key: git-username
+              - name: GIT_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ include "git-configmap-sync.gitCloneSecretName" . }}
+                    key: git-password
+              - name: GIT_SSH_KEY
+                value: /opt/.ssh/id_rsa
+              - name: CONFIGMAP_DIR
+                value: /opt/configmap-dir
+              volumeMounts:
+                - name: configmap-entrypoint
+                  mountPath: /opt/entrypoint
+                - name: configmap-private-ssh-key
+                  readOnly: true
+                  mountPath: /opt/.ssh
+                - name: configmap-dir
+                  mountPath: /opt/configmap-dir
+              resources:
+                {{- toYaml .Values.gitClone.resources | nindent 16 }}
+              command: ["/bin/sh", "/opt/entrypoint/entrypoint.sh"]
+          containers:
+            - name: {{ .Chart.Name }}
+              securityContext:
+                {{- toYaml .Values.securityContext | nindent 16 }}
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              env:
+              - name: CONFIGMAP_DIR
+                value: /opt/configmap-dir
+              volumeMounts:
+                - name: configmap-dir
+                  mountPath: /opt/configmap-dir
+              resources:
+                {{- toYaml .Values.resources | nindent 16 }}
+          volumes:
+            - name: configmap-dir
+              emptyDir: {}
+            - name: configmap-entrypoint
+              configMap:
+                name: {{ include "git-configmap-sync.fullname" . }}
+            - name: configmap-private-ssh-key
+              secret:
+                secretName: {{ include "git-configmap-sync.gitCloneSecretName" . }}
+                defaultMode: 0400
+                items:
+                - key: git-private-ssh-key
+                  path: id_rsa
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.affinity }}
+          affinity:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
