@@ -71,3 +71,21 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+extraLabels: {}
+
+metrics:
+  # Enable metrics
+  enabled: false
+
+  # Create ServiceMonitor
+  serviceMonitor:
+
+    # Enable or not the serviceMonitor.
+    enabled: false
+    # namespace: ""
+    interval: 30s
+    # scrapeTimeout: 30s
+    # relabellings:
+    honorLabels: false
+    additionalLabels: {}

@@ -46,58 +46,70 @@ The following table lists the configurable parameters of the http-reqtrace chart
 
 ### Common parameters
 
-| Parameter                                 | Description                                                                                                          | Default                                                      |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `nameOverride`                            | String to partially override http-reqtrace.fullname                                                                       | `nil`                                                        |
-| `fullnameOverride`                        | String to fully override http-reqtrace.fullname                                                                           | `nil`                                                        |
+| Parameter          | Description                                         | Default |
+| ------------------ | --------------------------------------------------- | ------- |
+| `nameOverride`     | String to partially override http-reqtrace.fullname | `nil`   |
+| `fullnameOverride` | String to fully override http-reqtrace.fullname     | `nil`   |
 
 ### http-reqtrace parameters
 
-| Parameter                                 | Description                                                                                                          | Default                                                      |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `image.repository`                        | http-reqtrace image name                                                                                                  | `julb/http-reqtrace`                                           |
-| `image.tag`                               | http-reqtrace image tag                                                                                                   | `{TAG_NAME}`                                                 |
-| `image.pullPolicy`                        | http-reqtrace image pull policy                                                                                           | `IfNotPresent`                                               |
-| `imagePullSecrets`                       | Specify docker-registry secret names as an array                                                                     | `[]` (does not add image pull secrets to deployed pods)      |
+| Parameter          | Description                                      | Default                                                 |
+| ------------------ | ------------------------------------------------ | ------------------------------------------------------- |
+| `image.repository` | http-reqtrace image name                         | `julb/http-reqtrace`                                    |
+| `image.tag`        | http-reqtrace image tag                          | `{TAG_NAME}`                                            |
+| `image.pullPolicy` | http-reqtrace image pull policy                  | `IfNotPresent`                                          |
+| `imagePullSecrets` | Specify docker-registry secret names as an array | `[]` (does not add image pull secrets to deployed pods) |
 
 ### Deployment parameters
 
-| Parameter                                 | Description                                                                                                          | Default                                                      |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `replicaCount`                            | Number of http-reqtrace nodes                                                                                             | `1`                                                          |
-| `podAnnotations`                          | http-reqtrace Pod annotations                                                                                             | `{}` (evaluated as a template)                               |
-| `affinity`                                | Affinity for pod assignment                                                                                          | `{}` (evaluated as a template)                               |
-| `nodeSelector`                            | Node labels for pod assignment                                                                                       | `{}` (evaluated as a template)                               |
-| `tolerations`                             | Tolerations for pod assignment                                                                                       | `[]` (evaluated as a template)                               |
-| `podSecurityContext`                      | http-reqtrace pods' Security Context                                                                                      | `{}`                                                         |
-| `securityContext`                | http-reqtrace containers' Security Context                                                                                | `{}`                                                         |
-| `resources`                        | The requested resources and resources limits for http-reqtrace containers                                                                         | `{}`                                                         |
-| `extraLabels`        | Additional labels to apply on all objects                                      | `{}`                           |
+| Parameter            | Description                                                               | Default                        |
+| -------------------- | ------------------------------------------------------------------------- | ------------------------------ |
+| `replicaCount`       | Number of http-reqtrace nodes                                             | `1`                            |
+| `podAnnotations`     | http-reqtrace Pod annotations                                             | `{}` (evaluated as a template) |
+| `affinity`           | Affinity for pod assignment                                               | `{}` (evaluated as a template) |
+| `nodeSelector`       | Node labels for pod assignment                                            | `{}` (evaluated as a template) |
+| `tolerations`        | Tolerations for pod assignment                                            | `[]` (evaluated as a template) |
+| `podSecurityContext` | http-reqtrace pods' Security Context                                      | `{}`                           |
+| `securityContext`    | http-reqtrace containers' Security Context                                | `{}`                           |
+| `resources`          | The requested resources and resources limits for http-reqtrace containers | `{}`                           |
+| `extraLabels`        | Additional labels to apply on all objects                                 | `{}`                           |
 
 ### Exposure parameters
 
-| Parameter                                 | Description                                                                                                          | Default                                                      |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `service.type`                            | Kubernetes Service type                                                                                              | `ClusterIP`                                                  |
-| `service.port`                            | HTTP port                                                                                                            | `80`                                                       |
-| `ingress.enabled`                         | Enable ingress resource for the deployment                                                                       | `false`                                                      |
-| `ingress.annotations`                     | Ingress annotations                                                                                                  | `{}`                                                         |
-| `ingress.hostname`                        | Default host for the ingress resource                                                                                | `http-reqtrace.local`                                             |
-| `ingress.tls`                             | Enable TLS configuration for the hostname defined at `ingress.hostname` parameter                                    | `false`                                                      |
-| `ingress.existingSecret`                  | Existing secret for the Ingress TLS certificate                                                                      | `nil`                                                        |
-| `ingress.hosts[0].host`              | Additional hostnames to be covered                                                                                   | `nil`                                                        |
-| `ingress.hosts[0].paths[0]`              | Additional paths to be covered                                                                                   | `nil`                                                        |
-| `ingress.tls[0].hosts[0]`            | TLS configuration for additional hostnames to be covered                                                             | `nil`                                                        |
-| `ingress.tls[0].secretName`          | TLS configuration for additional hostnames to be covered                                                             | `nil`                                                        |
+| Parameter                   | Description                                                                       | Default               |
+| --------------------------- | --------------------------------------------------------------------------------- | --------------------- |
+| `service.type`              | Kubernetes Service type                                                           | `ClusterIP`           |
+| `service.port`              | HTTP port                                                                         | `80`                  |
+| `ingress.enabled`           | Enable ingress resource for the deployment                                        | `false`               |
+| `ingress.annotations`       | Ingress annotations                                                               | `{}`                  |
+| `ingress.hostname`          | Default host for the ingress resource                                             | `http-reqtrace.local` |
+| `ingress.tls`               | Enable TLS configuration for the hostname defined at `ingress.hostname` parameter | `false`               |
+| `ingress.existingSecret`    | Existing secret for the Ingress TLS certificate                                   | `nil`                 |
+| `ingress.hosts[0].host`     | Additional hostnames to be covered                                                | `nil`                 |
+| `ingress.hosts[0].paths[0]` | Additional paths to be covered                                                    | `nil`                 |
+| `ingress.tls[0].hosts[0]`   | TLS configuration for additional hostnames to be covered                          | `nil`                 |
+| `ingress.tls[0].secretName` | TLS configuration for additional hostnames to be covered                          | `nil`                 |
 
 ### RBAC parameters
 
-| Parameter                                 | Description                                                                                                          | Default                                                      |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `serviceAccount.create`                   | Enable creation of ServiceAccount for http-reqtrace pods                                                                  | `true`                                                       |
-| `serviceAccount.name`                     | Name of the created serviceAccount                                                                                   | Generated using the `http-reqtrace.fullname` template             |
-| `serviceAccount.annotations`                             | Annotations to add on the service account.                                                                        | `{}`                                                      |
+| Parameter                    | Description                                | Default                                               |
+| ---------------------------- | ------------------------------------------ | ----------------------------------------------------- |
+| `serviceAccount.create`      | Enable creation of ServiceAccount          | `true`                                                |
+| `serviceAccount.name`        | Name of the created serviceAccount         | Generated using the `http-reqtrace.fullname` template |
+| `serviceAccount.annotations` | Annotations to add on the service account. | `{}`                                                  |
 
+### Metrics parameters
+
+| Parameter                                 | Description                                                                  | Default |
+| ----------------------------------------- | ---------------------------------------------------------------------------- | ------- |
+| `metrics.enabled`                         | Enable exposing metrics to be gathered by Prometheus                         | `false` |
+| `metrics.serviceMonitor.enabled`          | Create ServiceMonitor Resource for scraping metrics using PrometheusOperator | `false` |
+| `metrics.serviceMonitor.namespace`        | Namespace which Prometheus is running in                                     | `nil`   |
+| `metrics.serviceMonitor.interval`         | Interval at which metrics should be scraped                                  | `30s`   |
+| `metrics.serviceMonitor.scrapeTimeout`    | Specify the timeout after which the scrape is ended                          | `nil`   |
+| `metrics.serviceMonitor.relabellings`     | Specify Metric Relabellings to add to the scrape endpoint                    | `nil`   |
+| `metrics.serviceMonitor.honorLabels`      | honorLabels chooses the metric's labels on collisions with target labels.    | `false` |
+| `metrics.serviceMonitor.additionalLabels` | Used to pass Labels that are required by the Installed Prometheus Operator.  | `{}`    |
 
 The above parameters map to the env variables defined in [julb/http-reqtrace](http://gitlab.com/julb/http-reqtrace). For more information please refer to the [julb/http-reqtrace](http://gitlab.com/julb/http-reqtrace) image documentation.
 
