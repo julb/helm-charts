@@ -36,6 +36,9 @@ Common labels
 {{- define "http-reqtrace.labels" -}}
 helm.sh/chart: {{ include "http-reqtrace.chart" . }}
 {{ include "http-reqtrace.selectorLabels" . }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels }}
+{{- end }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
