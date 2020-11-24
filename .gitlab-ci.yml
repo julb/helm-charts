@@ -24,6 +24,7 @@ pages:
       helm package $dir -d public
     done
   - helm repo index public/ --url $CHARTS_PUBLIC_URL
+  - cp artifacthub-repo.yml public/
   - tar -zcf content.tar.gz public/ && mv content.tar.gz public/
   artifacts:
     paths:
