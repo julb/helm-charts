@@ -1,3 +1,5 @@
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/julb-me)](https://artifacthub.io/packages/search?repo=julb-me)
+
 # Julb library for Kubernetes
 
 This repository hold a list of charts easily deployable on Kubernetes.
