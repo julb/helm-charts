@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "http-reqtrace.fullname" . }}
+  name: {{ include "alertmanager-gchat-integration.fullname" . }}
   labels:
-    {{- include "http-reqtrace.labels" . | nindent 4 }}
+    {{- include "alertmanager-gchat-integration.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "http-reqtrace.selectorLabels" . | nindent 6 }}
+      {{- include "alertmanager-gchat-integration.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -16,13 +16,13 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "http-reqtrace.selectorLabels" . | nindent 8 }}
+        {{- include "alertmanager-gchat-integration.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "http-reqtrace.serviceAccountName" . }}
+      serviceAccountName: {{ include "alertmanager-gchat-integration.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -31,23 +31,38 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: PORT
-              value: "8080"
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /healthz
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthz
               port: http
+          env:
+            - name: PORT
+              value: "8080"
+            - name: CONFIG_FILE_LOCATION
+              value: /opt/alertmanager-gchat-integration/secret/config.toml
+          volumeMounts:
+            - name: configmap-file
+              mountPath: /opt/alertmanager-gchat-integration/cm
+            - name: secret-file
+              mountPath: /opt/alertmanager-gchat-integration/secret
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: configmap-file
+          configMap:
+            name: {{ include "alertmanager-gchat-integration.fullname" . }}
+        - name: secret-file
+          secret:
+            secretName: {{ include "alertmanager-gchat-integration.configTomlSecretName" . }}
+            defaultMode: 0400
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -60,3 +75,4 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+
