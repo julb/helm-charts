@@ -6,7 +6,7 @@ on:
 name: Release
 
 jobs:
-  pypi:
+  package-helm:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
