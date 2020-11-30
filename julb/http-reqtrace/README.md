@@ -1,6 +1,6 @@
 # http-reqtrace
 
-[http-reqtrace](https://gitlab.com/julb/http-reqtrace) is a simple WebServer which logs details of incoming HTTP requests.
+[http-reqtrace](https://github.com/julb/http-reqtrace) is a simple WebServer which logs details of incoming HTTP requests.
 
 ## TL;DR
 
@@ -11,7 +11,7 @@ $ helm install my-release julb/http-reqtrace
 
 ## Introduction
 
-This chart bootstraps a [http-reqtrace](https://gitlab.com/julb/http-reqtrace) deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps a [http-reqtrace](https://github.com/julb/http-reqtrace) deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ The following table lists the configurable parameters of the http-reqtrace chart
 | `metrics.serviceMonitor.honorLabels`      | honorLabels chooses the metric's labels on collisions with target labels.    | `false` |
 | `metrics.serviceMonitor.additionalLabels` | Used to pass Labels that are required by the Installed Prometheus Operator.  | `{}`    |
 
-The above parameters map to the env variables defined in [julb/http-reqtrace](http://gitlab.com/julb/http-reqtrace). For more information please refer to the [julb/http-reqtrace](http://gitlab.com/julb/http-reqtrace) image documentation.
+The above parameters map to the env variables defined in [julb/http-reqtrace](http://github.com/julb/http-reqtrace). For more information please refer to the [julb/http-reqtrace](http://github.com/julb/http-reqtrace) image documentation.
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 

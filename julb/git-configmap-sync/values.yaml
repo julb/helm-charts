@@ -53,8 +53,8 @@ gitClone:
     runAsGroup: 65534
 
   gitConfig:
-    repository: https://gitlab.com/julb/kubernetes-configmap-sync.git
-    branch: master
+    repository: https://github.com/julb/kubernetes-configmap-sync.git
+    branch: main
     credentials:
       privateSshKey: |-
       username: ""
