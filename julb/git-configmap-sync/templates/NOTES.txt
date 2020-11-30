@@ -1,2 +1,0 @@
-Test the job by running this command:
-kubectl --namespace {{ .Release.Namespace }} create job run-{{ include "git-configmap-sync.fullname" . }} --from=cronjob/{{ include "git-configmap-sync.fullname" . }}
