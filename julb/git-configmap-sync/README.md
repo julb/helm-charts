@@ -1,6 +1,6 @@
 # git-configmap-sync
 
-[kubernetes-configmap-sync](https://gitlab.com/julb/kubernetes-configmap-sync) is a Python job that creates configmaps from a source directory.
+[kubernetes-configmap-sync](https://github.com/julb/kubernetes-configmap-sync) is a Python job that creates configmaps from a source directory.
 
 ## TL;DR
 
@@ -11,7 +11,7 @@ $ helm install my-release julb/git-configmap-sync
 
 ## Introduction
 
-This chart bootstraps a [kubernetes-configmap-sync](https://gitlab.com/julb/kubernetes-configmap-sync) job on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps a [kubernetes-configmap-sync](https://github.com/julb/kubernetes-configmap-sync) job on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ The following table lists the configurable parameters of the git-configmap-sync 
 | `gitClone.gitConfig.credentials.privateSshKey`| Private SSH key to use to clone the repository        | ` `                     |
 | `gitClone.gitConfig.credentials.existingSecret`| Existing secret holding git credentials used to clone the repository        | ` `                     |
 
-The above parameters map to the env variables defined in [julb/kubernetes-configmap-sync](http://gitlab.com/julb/kubernetes-configmap-sync). For more information please refer to the [julb/kubernetes-configmap-sync](http://gitlab.com/julb/kubernetes-configmap-sync) image documentation.
+The above parameters map to the env variables defined in [julb/kubernetes-configmap-sync](http://github.com/julb/kubernetes-configmap-sync). For more information please refer to the [julb/kubernetes-configmap-sync](http://github.com/julb/kubernetes-configmap-sync) image documentation.
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
