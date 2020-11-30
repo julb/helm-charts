@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2020-11-30
+
+### Changed
+
+- Change logo URL
+
 ## [1.0.0] - 2020-10-28
 
 ### Added

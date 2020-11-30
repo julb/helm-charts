@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2020-11-30
+
+### Changed
+
+- Change logo URL
+- Increment `appVersion` to 1.1.0
+
 ## [1.0.3] - 2020-10-28
 
 ### Changed
