@@ -1,0 +1,10 @@
+{{ include "library-spring-boot-asset.deployment" . }}
+---
+{{ include "library-spring-boot-asset.hpa" . }}
+---
+{{ include "library-spring-boot-asset.service" . }}
+---
+{{ include "library-spring-boot-asset.serviceaccount" . }}
+---
+{{ include "library-spring-boot-asset.ingress" . }}
+

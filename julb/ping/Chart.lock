@@ -1,0 +1,6 @@
+dependencies:
+- name: library-spring-boot-asset
+  repository: file://../library-spring-boot-asset
+  version: 1.0.0
+digest: sha256:920e31d9e1999f1ed9888e23087e593faf218cd0115fa989e9d61b0cd31b8bfd
+generated: "2020-12-16T12:03:14.891653+01:00"
