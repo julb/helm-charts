@@ -1,0 +1,63 @@
+# Default values for docker-certs-ca-installer.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+dockerCertsCaInstaller:
+  caConfigs: []
+  #  - hosts:
+  #    - chart-example.local
+  #    - chart-example2.local
+  #    x509Crt: |
+  #      -----BEGIN CERTIFICATE-----
+  #      ...
+  #      -----END CERTIFICATE-----
+
+image:
+  repository: busybox
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+psp:
+  create: true
+  annotations: {}
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot:
+  # runAsUser:
+  # runAsGroup:
+
+resources:
+  limits:
+    cpu: 50m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

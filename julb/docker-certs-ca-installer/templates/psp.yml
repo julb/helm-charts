@@ -1,0 +1,33 @@
+{{- if .Values.psp.create }}
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: {{ include "docker-certs-ca-installer.fullname" . }}
+  labels:
+    {{- include "docker-certs-ca-installer.labels" . | nindent 4 }}
+{{- if .Values.psp.annotations }}
+  annotations:
+{{ toYaml .Values.psp.annotations | indent 4 }}
+{{- end }}
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'hostPath'
+    - 'secret'
+    - 'configMap'
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+  readOnlyRootFilesystem: false
+  allowedHostPaths:
+    - pathPrefix: /etc/docker/certs.d
+{{- end }}

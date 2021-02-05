@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Project list
 
 - [julb/alertmanager-gchat-integration](./julb/alertmanager-gchat-integration/CHANGELOG.md)
+- [julb/docker-certs-ca-installer](./julb/docker-certs-ca-installer/CHANGELOG.md)
 - [julb/git-configmap-sync](./julb/git-configmap-sync/CHANGELOG.md)
 - [julb/http-healthcheck](./julb/http-healthcheck/CHANGELOG.md)
 - [julb/http-reqtrace](./julb/http-reqtrace/CHANGELOG.md)
