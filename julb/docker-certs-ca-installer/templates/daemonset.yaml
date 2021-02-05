@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "docker-certs-ca-installer.fullname" . }}
+  labels:
+    {{- include "docker-certs-ca-installer.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "docker-certs-ca-installer.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "docker-certs-ca-installer.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "docker-certs-ca-installer.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: [ 'sh' ]
+          args:
+            - '-c'
+            - >
+              echo "> CA installation started.";
+              for FILENAME in /opt/docker-certs-configmap/*.crt; do
+                  DOCKER_REGISTRY_HOST=$(basename $FILENAME .crt);
+                  echo ">> Installing CA for $DOCKER_REGISTRY_HOST.";
+                  mkdir -p "/etc/docker/certs.d/$DOCKER_REGISTRY_HOST";
+                  cp "/opt/docker-certs-configmap/$DOCKER_REGISTRY_HOST.crt" "/etc/docker/certs.d/$DOCKER_REGISTRY_HOST/ca.crt";
+              done;
+              echo "> CA installation completed.";
+              exec tail -f /dev/null
+          volumeMounts:
+          - name: etc-docker-certs-d
+            mountPath: /etc/docker/certs.d
+          - name: docker-certs-configmap
+            mountPath: /opt/docker-certs-configmap
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      terminationGracePeriodSeconds: 5
+      volumes:
+        - name: etc-docker-certs-d
+          hostPath:
+            path: /etc/docker/certs.d
+        - name: docker-certs-configmap
+          configMap:
+            name: {{ include "docker-certs-ca-installer.fullname" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -17,6 +17,7 @@ $ helm install my-release julb/<chart>
 Pick one among the list to view configuration details.
 
 - [julb/alertmanager-gchat-integration](./julb/alertmanager-gchat-integration/README.md)
+- [julb/docker-certs-ca-installer](./julb/docker-certs-ca-installer/README.md)
 - [julb/git-configmap-sync](./julb/git-configmap-sync/README.md)
 - [julb/http-healthcheck](./julb/http-healthcheck/README.md)
 - [julb/http-reqtrace](./julb/http-reqtrace/README.md)
