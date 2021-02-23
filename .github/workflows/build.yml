@@ -1,0 +1,30 @@
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+  pull_request:
+    branches-ignore:
+      - gh-pages
+
+name: Build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/setup-helm@v1
+      - uses: actions/checkout@v2
+      - run: make build
+  lint:
+    runs-on: ubuntu-latest
+    name: lint
+    steps:
+      - uses: azure/setup-helm@v1
+      - uses: actions/checkout@v2
+      - run: make lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/setup-helm@v1
+      - uses: actions/checkout@v2
+      - run: make test
