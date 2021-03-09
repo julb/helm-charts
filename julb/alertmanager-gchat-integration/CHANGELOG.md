@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Trigger Deployment rolling update if secret/configmap changed. #7 - Huge thanks to @desaintmartin
+- Trigger Deployment rolling update if secret/configmap changed. [#7](https://github.com/julb/helm-charts/pull/7) - Huge thanks to [@desaintmartin](https://github.com/desaintmartin)
 
 ## [1.0.0] - 2020-10-28
 
