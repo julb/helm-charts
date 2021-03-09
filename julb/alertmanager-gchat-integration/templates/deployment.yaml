@@ -11,8 +11,10 @@ spec:
       {{- include "alertmanager-gchat-integration.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+    {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
@@ -75,4 +77,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
