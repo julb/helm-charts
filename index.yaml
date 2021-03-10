@@ -3,7 +3,21 @@ entries:
   alertmanager-gchat-integration:
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-03-09T18:22:42.782796979Z"
+    created: "2021-03-10T17:12:52.816685135Z"
+    description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
+    digest: 31a82d3ad2b3aa883d2c7fe42c03040e28ad31ed6d62c6f9e991aa60d4f3148e
+    icon: https://www.julb.me/images/logo.svg
+    name: alertmanager-gchat-integration
+    sources:
+    - https://github.com/julb/helm-charts
+    - https://github.com/julb/alertmanager-gchat-integration
+    type: application
+    urls:
+    - https://charts.julb.me/alertmanager-gchat-integration-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2021-03-10T17:12:52.81525212Z"
     description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
     digest: b842096c669959a9c4c2b4b567c6f809cf79cc3ffd5ae7db542fe01cf1f241e7
     icon: https://www.julb.me/images/logo.svg
@@ -17,7 +31,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-03-09T18:22:42.781958978Z"
+    created: "2021-03-10T17:12:52.814065408Z"
     description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
     digest: aa7225c5af16a22f5dee175553af47b79c95ad99d0f7a1f506f18e2df1153e5c
     icon: https://www.julb.me/images/logo.svg
@@ -29,9 +43,9 @@ entries:
   docker-certs-ca-installer:
   - apiVersion: v2
     appVersion: 1.33.0
-    created: "2021-03-09T18:22:42.78338218Z"
+    created: "2021-03-10T17:12:52.817518444Z"
     description: This chart enables to install custom CA certs on each worker node in /etc/docker/certs.d.
-    digest: 9d79a42a298c59cc991e8089dda6858f45a1a7581850479ddd93e187f02cf808
+    digest: f28502dabb5e804ed3a187ab6595feb50877154b5047f7a4eb546bee3ca39fb6
     icon: https://www.julb.me/images/logo.svg
     name: docker-certs-ca-installer
     type: application
@@ -41,9 +55,9 @@ entries:
   git-configmap-sync:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-03-09T18:22:42.784810183Z"
+    created: "2021-03-10T17:12:52.818839158Z"
     description: This chart installs a CronJob to synchronize a git repository with configmaps.
-    digest: fd98666799ada20a2dec5b1c7b17e388b0bf8d49dad66d2fa44139178c7c9e40
+    digest: e671929edaeb1e7437135c5a33c6387315d87fac7f69dcfaf2e94afc99f8930e
     icon: https://www.julb.me/images/logo.svg
     name: git-configmap-sync
     type: application
@@ -52,7 +66,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-03-09T18:22:42.784104081Z"
+    created: "2021-03-10T17:12:52.818177851Z"
     description: This chart installs a CronJob to synchronize a git repository with configmaps.
     digest: e0582235714351fc82cac375f44aa222dd5526eaf8a0de0f361761060535f102
     icon: https://julb.me/images/logo.svg
@@ -64,9 +78,9 @@ entries:
   http-healthcheck:
   - apiVersion: v2
     appVersion: 1.19.3-alpine
-    created: "2021-03-09T18:22:42.786581785Z"
+    created: "2021-03-10T17:12:52.821241283Z"
     description: A Helm chart useful to respond to heathchecks.
-    digest: d49f8e8b4fdcfc23bc7483903c063194c2e9e0dd8042751b87b9ba4d25d0311b
+    digest: 749b69f28025404a95215e642c7bdd5ada30c8866e377b2de8499362c881a8b6
     icon: https://www.julb.me/images/logo.svg
     name: http-healthcheck
     type: application
@@ -75,7 +89,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.19.3-alpine
-    created: "2021-03-09T18:22:42.785984484Z"
+    created: "2021-03-10T17:12:52.819441064Z"
     description: A Helm chart useful to respond to heathchecks.
     digest: 0e8dedeb3563a4060c8bb35d0904a2a4eabc0ef0934c045d0b517d2a36515b7c
     icon: https://julb.me/images/logo.svg
@@ -87,9 +101,9 @@ entries:
   http-reqtrace:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-03-09T18:22:42.796484901Z"
+    created: "2021-03-10T17:12:52.825121624Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
-    digest: ae6ed301c243b95b12d9e904fc1d06e64879a6d013272fb13f845ef8fc548a80
+    digest: 7e68eb246573388c1caf171539befb5e512c75fac24d1f0394ded6bbbc86ebf3
     icon: https://www.julb.me/images/logo.svg
     name: http-reqtrace
     type: application
@@ -98,7 +112,7 @@ entries:
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.9
-    created: "2021-03-09T18:22:42.7958062Z"
+    created: "2021-03-10T17:12:52.824430716Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: 5b7f8bd284075db90e09ef95865d9e89d1461e4efaa73ff927f746d834853eaf
     icon: https://julb.me/images/logo.svg
@@ -109,7 +123,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.8
-    created: "2021-03-09T18:22:42.795056598Z"
+    created: "2021-03-10T17:12:52.823743909Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: ab4c4fbdd1b72a4ea858b21b6853891ff5e6941f060929317ce70b4d2dcea0d5
     icon: https://julb.me/images/logo.svg
@@ -120,7 +134,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.7
-    created: "2021-03-09T18:22:42.794338097Z"
+    created: "2021-03-10T17:12:52.822924901Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: f27aed20ce87cc0765f0f3bc58ba5210f02bbd90128fffba76edd44d6adcb0a9
     icon: https://julb.me/images/logo.svg
@@ -131,7 +145,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.7
-    created: "2021-03-09T18:22:42.787165986Z"
+    created: "2021-03-10T17:12:52.822007191Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: d36531e255f9b772d432b096f83e938b72e3094acb1c65615ea918ceafe31ad6
     icon: https://julb.me/images/logo.svg
@@ -140,4 +154,4 @@ entries:
     urls:
     - https://charts.julb.me/http-reqtrace-1.0.0.tgz
     version: 1.0.0
-generated: "2021-03-09T18:22:42.780885376Z"
+generated: "2021-03-10T17:12:52.812482591Z"
