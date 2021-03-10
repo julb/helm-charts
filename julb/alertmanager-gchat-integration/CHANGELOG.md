@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2021-03-10
+
+### Changed
+
+- Fix bug related to extension used for configmap and secrets (yml -> yaml). [#8](https://github.com/julb/helm-charts/pull/8) - Huge thanks to [@desaintmartin](https://github.com/desaintmartin)
+
 ## [1.0.1] - 2021-03-09
 
 ### Changed
