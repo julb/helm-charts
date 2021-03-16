@@ -2,8 +2,22 @@ apiVersion: v1
 entries:
   alertmanager-gchat-integration:
   - apiVersion: v2
+    appVersion: 1.0.4
+    created: "2021-03-16T11:02:10.342195106Z"
+    description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
+    digest: 020e7f5d33523dac7133b1785f0ddf2093bb7ab331acc546a114ee929c4c0bc5
+    icon: https://www.julb.me/images/logo.svg
+    name: alertmanager-gchat-integration
+    sources:
+    - https://github.com/julb/helm-charts
+    - https://github.com/julb/alertmanager-gchat-integration
+    type: application
+    urls:
+    - https://charts.julb.me/alertmanager-gchat-integration-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     appVersion: 1.0.3
-    created: "2021-03-11T20:03:19.443813068Z"
+    created: "2021-03-16T11:02:10.340263006Z"
     description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
     digest: 1725b557c0c72a6b124ecd79db7c86f049e510ab92d67d36c7ba697bdd16c20c
     icon: https://www.julb.me/images/logo.svg
@@ -17,7 +31,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-03-11T20:03:19.44300176Z"
+    created: "2021-03-16T11:02:10.339024706Z"
     description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
     digest: f05c2ed31ced78c1636b02acbcb73f2d170932fbf0f2a26596a1e5efb4aa0ccd
     icon: https://www.julb.me/images/logo.svg
@@ -31,7 +45,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-03-11T20:03:19.442209952Z"
+    created: "2021-03-16T11:02:10.337493706Z"
     description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
     digest: b842096c669959a9c4c2b4b567c6f809cf79cc3ffd5ae7db542fe01cf1f241e7
     icon: https://www.julb.me/images/logo.svg
@@ -45,7 +59,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-03-11T20:03:19.441309043Z"
+    created: "2021-03-16T11:02:10.336562806Z"
     description: This chart installs a service that enables GChat integration with Prometheus AlertManager.
     digest: aa7225c5af16a22f5dee175553af47b79c95ad99d0f7a1f506f18e2df1153e5c
     icon: https://www.julb.me/images/logo.svg
@@ -57,9 +71,9 @@ entries:
   docker-certs-ca-installer:
   - apiVersion: v2
     appVersion: 1.33.0
-    created: "2021-03-11T20:03:19.444450974Z"
+    created: "2021-03-16T11:02:10.342862606Z"
     description: This chart enables to install custom CA certs on each worker node in /etc/docker/certs.d.
-    digest: 9d4091c4dbfc682d6fe096f3ff9a98f91967b2b63eddd8f7a3ec1f74bbd5b130
+    digest: cc3a66b64f7bf49ea30b38a18894cef3bddb13e49badb121e0cc0f995a992a55
     icon: https://www.julb.me/images/logo.svg
     name: docker-certs-ca-installer
     type: application
@@ -69,9 +83,9 @@ entries:
   git-configmap-sync:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-03-11T20:03:19.445692287Z"
+    created: "2021-03-16T11:02:10.344505606Z"
     description: This chart installs a CronJob to synchronize a git repository with configmaps.
-    digest: 7c7e957374fb513405d75dac02ce86f9d15f539cc302e063e269957fe31129ba
+    digest: 272b54a70aacec33985b0aef6a972d41d2245d3324b9f5f2c24a86abb006d261
     icon: https://www.julb.me/images/logo.svg
     name: git-configmap-sync
     type: application
@@ -80,7 +94,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-03-11T20:03:19.44504868Z"
+    created: "2021-03-16T11:02:10.343652006Z"
     description: This chart installs a CronJob to synchronize a git repository with configmaps.
     digest: e0582235714351fc82cac375f44aa222dd5526eaf8a0de0f361761060535f102
     icon: https://julb.me/images/logo.svg
@@ -92,9 +106,9 @@ entries:
   http-healthcheck:
   - apiVersion: v2
     appVersion: 1.19.3-alpine
-    created: "2021-03-11T20:03:19.446872799Z"
+    created: "2021-03-16T11:02:10.345960506Z"
     description: A Helm chart useful to respond to heathchecks.
-    digest: c1e380015fbf3c58ac12cab0ea54a9d26eecb19a8611379757883dc79ca7820e
+    digest: 79e86dd658936845db19e9660cdc4a13f3b99798dd5eaf0f07b73509245626dd
     icon: https://www.julb.me/images/logo.svg
     name: http-healthcheck
     type: application
@@ -103,7 +117,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.19.3-alpine
-    created: "2021-03-11T20:03:19.446251292Z"
+    created: "2021-03-16T11:02:10.345207506Z"
     description: A Helm chart useful to respond to heathchecks.
     digest: 0e8dedeb3563a4060c8bb35d0904a2a4eabc0ef0934c045d0b517d2a36515b7c
     icon: https://julb.me/images/logo.svg
@@ -115,9 +129,9 @@ entries:
   http-reqtrace:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-03-11T20:03:19.450665937Z"
+    created: "2021-03-16T11:02:10.349424206Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
-    digest: d8e5869073767b72024edee6ba2ebae7fa439118c1d17fc2736b872ff367e65e
+    digest: 12ec22d9ff21d3d121cb4db96210180ad14175b71afc873a06886f39302a1498
     icon: https://www.julb.me/images/logo.svg
     name: http-reqtrace
     type: application
@@ -126,7 +140,7 @@ entries:
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.9
-    created: "2021-03-11T20:03:19.449667127Z"
+    created: "2021-03-16T11:02:10.348715506Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: 5b7f8bd284075db90e09ef95865d9e89d1461e4efaa73ff927f746d834853eaf
     icon: https://julb.me/images/logo.svg
@@ -137,7 +151,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.8
-    created: "2021-03-11T20:03:19.448543115Z"
+    created: "2021-03-16T11:02:10.348068406Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: ab4c4fbdd1b72a4ea858b21b6853891ff5e6941f060929317ce70b4d2dcea0d5
     icon: https://julb.me/images/logo.svg
@@ -148,7 +162,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.7
-    created: "2021-03-11T20:03:19.44796631Z"
+    created: "2021-03-16T11:02:10.347343406Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: f27aed20ce87cc0765f0f3bc58ba5210f02bbd90128fffba76edd44d6adcb0a9
     icon: https://julb.me/images/logo.svg
@@ -159,7 +173,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.7
-    created: "2021-03-11T20:03:19.447384404Z"
+    created: "2021-03-16T11:02:10.346689806Z"
     description: This chart installs http-reqtrace with deployment, ingress and service.
     digest: d36531e255f9b772d432b096f83e938b72e3094acb1c65615ea918ceafe31ad6
     icon: https://julb.me/images/logo.svg
@@ -168,4 +182,4 @@ entries:
     urls:
     - https://charts.julb.me/http-reqtrace-1.0.0.tgz
     version: 1.0.0
-generated: "2021-03-11T20:03:19.440299132Z"
+generated: "2021-03-16T11:02:10.335406007Z"
