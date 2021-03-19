@@ -149,6 +149,7 @@ The following table lists the configurable parameters of the alertmanager-gchat-
 | ----------------------------------------------------------------- | ------------------------------------------- | ------- |
 | `alertManagerGChatIntegration.configToml.existingSecret`          | Existing secret holding configuration file. | ` `     |
 | `alertManagerGChatIntegration.configToml.origin`                  | Origin to add to the GChat message.         | ` `     |
+| `alertManagerGChatIntegration.configToml.useCards`                | Flag to print the GChat message as a Card.  | ` `     |
 | `alertManagerGChatIntegration.configToml.rooms[].name`            | Logical name of the GChat room.             | ` `     |
 | `alertManagerGChatIntegration.configToml.rooms[].notificationUrl` | Webhook URL of the GChat room.              | ` `     |
 | `alertManagerGChatIntegration.notificationTemplateJsonJ2`         | Jinja2 template to render alerts on GChat.  | ` `     |

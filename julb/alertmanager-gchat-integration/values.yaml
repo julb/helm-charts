@@ -18,6 +18,7 @@ alertManagerGChatIntegration:
   configToml:
     # existingSecret: name-of-existing-secret
     # origin: "custom-origin"
+    # useCards: false
     rooms:
     #  - name: <room name>
     #    notificationUrl: <room-webhook-url>

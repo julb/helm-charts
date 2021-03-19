@@ -7,17 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5] - 2021-03-19
+
+### Changed
+
+- Bump `appVersion` to 1.0.5. See related [CHANGELOG.md](https://github.com/julb/alertmanager-gchat-integration/blob/main/CHANGELOG.md).
+
 ## [1.0.4] - 2021-03-16
 
 ### Changed
 
-- Bump `appVersion` to 1.0.4.
+- Bump `appVersion` to 1.0.4. See related [CHANGELOG.md](https://github.com/julb/alertmanager-gchat-integration/blob/main/CHANGELOG.md)
 
 ## [1.0.3] - 2021-03-11
 
 ### Changed
 
-- Bump `appVersion` to 1.0.3.
+- Bump `appVersion` to 1.0.3. See related [CHANGELOG.md](https://github.com/julb/alertmanager-gchat-integration/blob/main/CHANGELOG.md)
 
 ## [1.0.2] - 2021-03-10
 
